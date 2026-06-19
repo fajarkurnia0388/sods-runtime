@@ -5,7 +5,7 @@
   [![Version](https://img.shields.io/badge/version-2.1%20(Research%20PoC)-58a6ff.svg)](./prototype_sods.py)
   [![Theory](https://img.shields.io/badge/theory-Rice's%20Theorem%20Workaround-a371f7.svg)](./WHITEPAPER.md)
   [![Speedup](https://img.shields.io/badge/speedup-4.5×%20to%207.14×%20(Simulated)-56d364.svg)](./prototype_sods.py)
-  [![Vibe](https://img.shields.io/badge/vibe-Doom%20(1993)%20Efficiency-f0883e.svg)](./WHITEPAPER.md)
+  [![Vibe](https://img.shields.io/badge/vibe-Doom%20(1993)%20-Apple%20Task%20Manager%20Efficiency-f0883e.svg)](./WHITEPAPER.md)
 </div>
 
 ---
@@ -24,6 +24,28 @@
 SODS bertolak dari sebuah pertanyaan teoretis mendasar: *"Apabila Teorema Rice (1953) secara matematis melarang kita membuat alat konversi universal yang dijamin 100% ekuivalen untuk seluruh masukan tak terhingga ($\infty$), bagaimana jika kita membangun runtime yang mengamati perilaku eksekusi, menspesialisasi biner HANYA untuk masukan teramati, menyimpan profil persisten (seperti cookie), dan menyiapkan pintu darurat (OSR Deoptimization) saat asumsi dilanggar?"*
 
 Proyek ini memodelkan filosofi kompilator JIT modern (*V8*, *PyPy*, *GraalVM*) tingkat industri dan mengemasnya menjadi konsep peta jalan *external OS-level wrapper converter*.
+
+---
+
+## 🌟 Potensi Raksasa Jika Perkakas SODS Kelak Dibangun (Why SODS Matters)
+
+Agar setiap tingkatan profesional memahami dampak revolusioner riset ini, kami memetakan apa yang akan terjadi jika Peta Jalan SODS kelak diwujudkan menjadi perkakas produksi nyata (misal: `sods-pack` atau `ExoRuntime`):
+
+### 🌱 1. Bagi Pemula (*Junior Developers / Students*): "Membuat Aplikasi Ringan Tanpa Sakit Kepala"
+Saat pemula belajar membangun aplikasi desktop menggunakan HTML/JS/Python, mereka sering menggunakan framework *Electron* atau *PyQt*. Namun mereka terkejut dan berkecil hati saat melihat aplikasi kalkulator sederhana buatan mereka berukuran **150 MB** dan memakan RAM **300 MB**.
+* **Potensi Perkakas SODS:** Jika konverter otonom SODS tersedia, pemula cukup menulis kode JS/Python murni yang biasa mereka tulis. Perkakas SODS akan membungkus, memantau, dan menyihir aplikasi mereka di belakang layar menjadi secepat dan seringan biner C. Mereka dapat memamerkan aplikasi yang berlari mulus di laptop lama atau ponsel murah tanpa perlu mempelajari teknik optimisasi Rust/C yang luar biasa rumit.
+
+### ⚡ 2. Bagi Profesional Web / Mobile (*Intermediate Frontend / Mobile Devs*): "Performa Silikon Tanpa Perlu Rewrite Bahasa"
+Pengembang kontemporer kerap dituntut membangun komputasi berat di klien (*rendering* data 10.000 baris, kanvas grafis, atau kriptografi lokal). Saat ini, satu-satunya cara mendapatkan performa tinggi adalah mempelajari **Rust** atau **Zig** untuk dikompilasi ke WebAssembly. Bagi banyak tim, kurva belajar Rust yang teramat curam memicu anjloknya produktivitas pengerjaan fitur (*velocity drop*).
+* **Potensi Perkakas SODS:** Pengembang cukup mempertahankan basis kode **TypeScript** atau **Python** mapan mereka. Mesin *Runtime Wrapper* SODS akan mencegat eksekusi, menjejak *Hot Paths*, dan memancarkan instruksi Assembly/WASM murni *on-the-fly*. Tim memperoleh **kecepatan 3×–5× lipat "gratis"** tanpa mengorbankan kecepatan penyerahan fitur.
+
+### 🏢 3. Bagi Arsitek Cloud & Eksekutif Bisnis (*Senior Cloud/Backend Enterprise Architects*): "Memotong Tagihan Server AWS / Cloud Hingga Jutaan Dolar"
+Di perusahaan berskala *Enterprise / Unicorn*, peladen *backend* monolitik (Node.js, Python, Ruby) menangani miliaran permintaan per hari. Kelemahan *overhead* bahasa dinamis memaksa korporasi membakar uang menyewa ribuan instansi *Kubernetes pod* atau *AWS EC2* berkapasitas RAM gajah dan prosesor mahal.
+* **Potensi Perkakas SODS:** Diinstrumenkan di tingkat *Container Hypervisor* (seperti *Wasmtime Fuel Pods* atau *eBPF Mesh*), setiap mikrolayanan perusahaan akan dispesialisasi secara empiris saat peladen berlari. Pengurangan *memory jejak* hingga 70% dan pemotongan siklus CPU berarti peladen sanggup menelan trafik **3× lipat di atas infrastruktur keras yang persis sama**. Korporasi menghemat anggaran tagihan peladen (*cloud billing*) hingga jutaan dolar per tahun dan menaikkan marjin laba bisnis.
+
+### 🌍 4. Bagi Penggiat Green Computing & Ekosistem Makro: "Menyelamatkan Silikon Lawas dan Bumi"
+Jutaan laptop lama dan perangkat ponsel dibuang ke tempat sampah setiap tahun menjadi limbah elektronik (*e-waste*) semata-mata karena silikon mereka tidak sanggup lagi menahan sistem operasi dan aplikasi obrolan modern yang memakan RAM berkuintal-kuintal.
+* **Potensi Perkakas SODS:** Konverter otonom SODS bertindak sebagai **Pahlawan Aksesibilitas Digital Global**. Dengan merampingkan eksekusi perangkat lunak dari luar, alat ini memperpanjang umur masa pakai keras lama selama 5–10 tahun, menekan laju limbah *e-waste*, dan menurunkan jejak emisi karbon dari peladen pusat data di seluruh dunia.
 
 ---
 
@@ -80,6 +102,23 @@ PYTHONPATH=src python3 benchmarks/bench_add.py
 # ── 4. Jalankan Automated Test Suite ────────────────────────────────────────
 PYTHONPATH=src python3 -m unittest discover tests
 ```
+
+---
+
+## 🛠️ Status Implementasi vs Peta Jalan Produksi
+
+Guna menjaga objektivitas ilmiah yang ketat, kami membagi kapabilitas proyek ke dalam 4 strata realitas:
+
+| Kapabilitas / Rintangan | Status Aktual di Repo | Pemilihan Teknologi Target Produksi |
+|---|---|---|
+| **Polymorphic Inline Caches (PIC)** | **Implemented** (Python PoC wrapper) | Register-level `cmp` + `jne` Machine Code |
+| **On-Stack Replacement (OSR)** | **Implemented** (Python Stack Evacuation) | Native Stack Frame Reconstruction |
+| **Tier-Lowering Protection** | **Implemented** (Persistent Locked Set) | Polymorphic Call Site Tier-Lowering |
+| **WASI Side-Effect Boundary** | **Simulated** (Manual Taint Flag) | `Seccomp` / WASI POSIX Interception |
+| **Sandbox Evasion Mitigation** | **Simulated** (Virtual Timing Noise) | KVM/VMware High-Res Clock Randomization |
+| **Closed-Binary Observability** | **Proposed** (Roadmap Phase 2) | Intersepsi Kernel **eBPF** + **DynamoRIO** |
+| **Zero-Overhead Profiling** | **Proposed** (Roadmap Phase 1) | **Hardware PMU Statistical Sampling** |
+| **Tauri Drop-In Companion Runtime** | **Future Work** (Roadmap Phase 4) | Modul Eksperimental Companion Tauri |
 
 ---
 

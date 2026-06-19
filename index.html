@@ -181,7 +181,7 @@
             font-size: 22px;
             font-weight: 700;
             color: var(--text-main);
-            margin: 48px 0 20px;
+            margin: 56px 0 20px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -194,6 +194,95 @@
             height: 12px;
             border-radius: 3px;
             background: var(--acc-blue);
+        }
+
+        /* ── Potensi Masa Depan (Why SODS Matters) ────────────────────────── */
+        .potential-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .potential-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pot-card {
+            background: linear-gradient(180deg, var(--bg-card) 0%, #0d1117 100%);
+            border: 1px solid var(--border-main);
+            border-top: 2px solid var(--border-hl);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .pot-card:hover {
+            border-color: var(--acc-blue);
+            transform: translateY(-2px);
+        }
+
+        .pot-card.green {
+            border-top-color: var(--acc-green);
+        }
+
+        .pot-card.blue {
+            border-top-color: var(--acc-blue);
+        }
+
+        .pot-card.orange {
+            border-top-color: var(--acc-orange);
+        }
+
+        .pot-card.purple {
+            border-top-color: var(--acc-purple);
+        }
+
+        .pot-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .pot-icon {
+            font-size: 22px;
+            background: var(--bg-subcard);
+            border: 1px solid var(--border-hl);
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .pot-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .pot-target {
+            font-size: 11.5px;
+            font-family: 'SF Mono', monospace;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 2px;
+        }
+
+        .pot-desc {
+            font-size: 13.5px;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        .pot-desc b {
+            color: #ffffff;
+            font-weight: 600;
         }
 
         /* ── Kartu Eksekusi Pipeline 5 Tahap ──────────────────────────────── */
@@ -211,7 +300,7 @@
             padding: 24px 28px 24px 72px;
             position: relative;
             margin-bottom: 6px;
-            transition: border-color 0.2s, transform 0.2s;
+            transition: border-color 0.2s;
         }
 
         .stage-card:hover {
@@ -269,7 +358,6 @@
             font-size: 17px;
             font-weight: 700;
             color: var(--text-main);
-            letter-spacing: -0.01em;
         }
 
         .stage-tag {
@@ -289,7 +377,6 @@
             margin-bottom: 16px;
         }
 
-        /* Grid Sub-Komponen */
         .comp-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -299,14 +386,6 @@
         @media (max-width: 768px) {
             .comp-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .navbar {
-                padding: 16px 20px;
-            }
-
-            .hero h1 {
-                font-size: 32px;
             }
         }
 
@@ -328,7 +407,6 @@
             font-weight: 600;
         }
 
-        /* Warna Border Kiri Komponen */
         .comp-green {
             border-left-color: var(--acc-green);
         }
@@ -447,12 +525,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 14px;
-        }
-
-        @media (max-width: 768px) {
-            .mitigation-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
         .mitigation-card {
@@ -624,8 +696,8 @@
     <section class="hero">
         <h1>Mengatasi Software Bloat Lewat Pengamatan Runtime</h1>
         <p class="sub-hero">
-            Sebuah Mahakarya Hibrida <i>Design Science Research</i> tingkat sistem operasi untuk mengakali batasan
-            absolut Teorema Rice secara empiris.
+            Sebuah Kajian Hibrida <i>Design Science Research</i> tingkat sistem operasi untuk mengakali batasan absolut
+            Teorema Rice secara empiris.
         </p>
 
         <div class="hero-badges">
@@ -638,6 +710,80 @@
 
     <!-- Wadah Konten Utama -->
     <main class="container">
+
+        <!-- ── Seksi 0: Potensi Masa Depan (Why SODS Matters) ───────────── -->
+        <h2 class="section-title">Potensi Raksasa Peta Jalan Ekosistem SODS</h2>
+
+        <div class="potential-grid">
+            <!-- Junior -->
+            <div class="pot-card green">
+                <div class="pot-header">
+                    <div class="pot-icon">🌱</div>
+                    <div>
+                        <h3 class="pot-title">Bagi Pemula &amp; Mahasiswa</h3>
+                        <span class="pot-target">Junior Developers / Students</span>
+                    </div>
+                </div>
+                <p class="pot-desc">
+                    Saat pemula belajar membuat aplikasi grafis desktop, mereka sering terpaku pada <b>Electron</b> atau
+                    <b>PyQt</b> dan berkecil hati melihat aplikasi sederhana mereka memakan RAM 300 MB. Jika konverter
+                    otonom SODS tersedia, mereka cukup menulis kode murni biasa. SODS akan menyihir aplikasi mereka di
+                    belakang layar menjadi <b>seringan biner C</b> yang berlari mulus di laptop lawas.
+                </p>
+            </div>
+
+            <!-- Professional Web Devs -->
+            <div class="pot-card blue">
+                <div class="pot-header">
+                    <div class="pot-icon">⚡</div>
+                    <div>
+                        <h3 class="pot-title">Bagi Profesional Web / Mobile</h3>
+                        <span class="pot-target">Intermediate Frontend / Mobile Devs</span>
+                    </div>
+                </div>
+                <p class="pot-desc">
+                    Mendapatkan performa silikon tingkat tinggi saat ini mewajibkan tim mempelajari <b>Rust/Zig</b>
+                    untuk dikompilasi ke WebAssembly. Dengan konverter SODS, tim dapat mempertahankan basis kode
+                    <b>TypeScript</b> atau <b>Python</b> mereka. SODS akan menginstrumen, menjejak jalur panas, dan
+                    memancarkan Assembly murni *on-the-fly*. Tim mendapat <b>speedup 3×–5× lipat gratis</b> tanpa
+                    *learning curve* bahasa baru.
+                </p>
+            </div>
+
+            <!-- Cloud Architects -->
+            <div class="pot-card orange">
+                <div class="pot-header">
+                    <div class="pot-icon">🏢</div>
+                    <div>
+                        <h3 class="pot-title">Bagi Arsitek Cloud &amp; Eksekutif Bisnis</h3>
+                        <span class="pot-target">Senior Cloud/Backend Enterprise Architects</span>
+                    </div>
+                </div>
+                <p class="pot-desc">
+                    Peladen *backend* monolitik melayani miliaran *request* per hari, memaksa korporasi membakar jutaan
+                    dolar menyewa ribuan instansi *AWS EC2* berkapasitas RAM gajah. Diintegrasikan di tingkat *Container
+                    Hypervisor* (*Wasmtime Pods / eBPF Mesh*), SODS memotong *memory footprint* hingga 70%. Peladen
+                    sanggup menelan <b>trafik 3× lipat di atas hardware yang persis sama</b>.
+                </p>
+            </div>
+
+            <!-- Green Computing -->
+            <div class="pot-card purple">
+                <div class="pot-header">
+                    <div class="pot-icon">🌍</div>
+                    <div>
+                        <h3 class="pot-title">Bagi Penggiat Green Computing</h3>
+                        <span class="pot-target">Macro Environmental Sustainability</span>
+                    </div>
+                </div>
+                <p class="pot-desc">
+                    Jutaan ponsel dan laptop lama dibuang ke tempat sampah setiap tahun menjadi limbah elektronik
+                    (*e-waste*) semata-mata karena mereka tidak sanggup menjalankan OS dan aplikasi modern yang boros
+                    RAM. SODS bertindak sebagai <b>Pahlawan Aksesibilitas Digital Global</b>, memperpanjang masa pakai
+                    hardware lama selama 5–10 tahun dan menekan jejak emisi karbon peladen global.
+                </p>
+            </div>
+        </div>
 
         <!-- ── Seksi 1: Arsitektur 5 Tahap ──────────────────────────────── -->
         <h2 class="section-title">Alur Kerja 5 Tahap Pipeline SODS Produksi</h2>
@@ -883,7 +1029,7 @@
         </p>
     </footer>
 
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'a0e2c0c73c0bea81',t:'MTc4MTg3NDQwNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'a0e2e175ace3ea81',t:'MTc4MTg3NTc0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
 </html>
