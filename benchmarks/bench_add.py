@@ -28,7 +28,7 @@ def run_benchmarks():
     
     # ── Prepare Candidates ───────────────────────────────────────────────────
     # 1. Specialized SODS Callable (PIC for int,int)
-    specialized_add_fn, label = make_specialized_add([("int", "int")])
+    specialized_add_fn, label, _ = make_specialized_add([("int", "int")], generic_add)
     
     # 2. Python Native Baseline (`operator.add` & direct addition)
     import operator
@@ -59,15 +59,15 @@ def run_benchmarks():
 
     # ── Execute 1. SODS Specialized Fast Path ────────────────────────────────
     print(f" [Candidate 1] SODS Specialized Fast Path ({label})")
-    print(f"   (Executes PIC Guard comparison + raw register addition)")
+    print(f"   (Executes synchronous Guard comparison + raw register addition)")
     spec_times = benchmark_candidate(lambda: [specialized_add_fn(a, b) for a, b in workloads])
     spec_median = statistics.median(spec_times)
     spec_mean = statistics.mean(spec_times)
     spec_min = min(spec_times)
 
     # ── Execute 2. Bloated Generic Target ────────────────────────────────────
-    print(f"\n [Candidate 2] Bloated Generic Target Target (`generic_add`)")
-    print(f"   (Executes simulated dynamic language dispatch & unboxing overhead)")
+    print(f"\n [Candidate 2] Bloated Generic Target (`generic_add`)")
+    print(f"   (Executes simulated dynamic language dispatch & lookup table overhead)")
     gen_times = benchmark_candidate(lambda: [generic_add(a, b) for a, b in workloads])
     gen_median = statistics.median(gen_times)
     gen_mean = statistics.mean(gen_times)
