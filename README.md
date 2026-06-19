@@ -72,7 +72,7 @@ Repositori ini menyajikan **Desain Penelitian Hibrida (*Design Science Research*
 * `benchmarks/bench_add.py` mengeksekusi komparasi 2 skenario (Workload Stabil vs Workload Volatile) berbanding eksekusi murni tingkat C bawaan Python (`operator.add`).
 * `tests/test_sods.py` memverifikasi 100% invarian JIT secara otomatis penuh.
 
-### 4. 🌐 [Pratinjau Visual Arsitektur Sistem (`arsitektur_sods.html`)](./arsitektur_sods.html)
+### 4. 🌐 [Pratinjau Visual Arsitektur Sistem (`index.html`)](https://fajarkurnia0388.github.io/sods-runtime/)
 * Visualisasi grafis interaktif berdesain *Dark-Mode 2026 Premium* (`SF Mono` / struktur kartu berlapis).
 * Mengilustrasikan aliran 5 Tahap *Pipeline* secara lengkap (dari *Cold Run* hingga *Warm Run*).
 
