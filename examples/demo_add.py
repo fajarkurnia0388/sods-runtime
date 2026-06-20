@@ -16,8 +16,14 @@ from sods import SODSSandbox, EquivalenceVerifier
 from sods.dummy_target import generic_add, generic_log_io
 
 def run_demo():
+    import io
+    if hasattr(sys.stdout, 'buffer'):
+        sys.stdout = io.TextIOWrapper(
+            sys.stdout.buffer, encoding='utf-8', errors='replace'
+        )
+
     print("=" * 72)
-    print("  PROTOTYPE SODS v2.1 — Sandbox Observer-Driven Specializer".center(72))
+    print("  PROTOTYPE SODS v2.4 — Sandbox Observer-Driven Specializer".center(72))
     print("  PIC │ Tier-Lowering │ WASI Boundary │ OSR Deopt │ Enriched Cache".center(72))
     print("=" * 72)
 

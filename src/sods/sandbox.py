@@ -32,10 +32,7 @@ _COOKIE_HMAC_KEY = hashlib.sha256(
     os.environ.get("SODS_HMAC_KEY", getattr(sys, 'platform', 'unknown') + "_sods_secret").encode("utf-8")
 ).digest()
 
-# Production roadmap: replace HMAC-SHA256 with Ed25519
-# pip install cryptography
-# See: https://cryptography.io/en/latest/hazmat/primitives/asymmetric/ed25519/
-def _sign_cookie(payload_bytes: bytes) -> tuple[str, str]:
+def _sign_cookie(payload_bytes: bytes) -> Tuple[str, str]:
     return hmac.new(_COOKIE_HMAC_KEY, payload_bytes, hashlib.sha256).hexdigest(), "hmac-sha256"
 
 def _verify_cookie(payload_bytes: bytes, sig: str) -> bool:
@@ -61,6 +58,10 @@ class SODSSandbox:
         self._lock = threading.Lock() # Ensures complete thread-safety across concurrent access
 
         if reset_cache and os.path.exists(self.profile_path):
+            try:
+                os.chmod(self.profile_path, 0o600)
+            except OSError:
+                pass
             os.remove(self.profile_path)
 
     # ── STAGE 1: COLD RUN (PEP 669 Sys Monitoring Enabled) ──────────────────
@@ -246,6 +247,12 @@ class SODSSandbox:
                 "signature": sig,
                 "signature_algo": algo
             }
+
+            if os.path.exists(self.profile_path):
+                try:
+                    os.chmod(self.profile_path, 0o600)
+                except OSError:
+                    pass
 
             with open(self.profile_path, "w") as f:
                 json.dump(envelope, f, indent=2)

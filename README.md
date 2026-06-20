@@ -3,7 +3,7 @@
   <p><b>A Research Concept & Educational PoC for Observer-Driven Runtime Specialization</b></p>
   <p>📖 <b><a href="./README_EN.md">Read in English</a></b></p>
 
-[![Version](<https://img.shields.io/badge/version-2.3.0%20(Research%20PoC)-58a6ff.svg>)](./prototype_sods.py)
+[![Version](<https://img.shields.io/badge/version-2.4.0%20(Research%20PoC)-58a6ff.svg>)](./prototype_sods.py)
 [![Theory](https://img.shields.io/badge/theory-Rice's%20Theorem%20Workaround-a371f7.svg)](./WHITEPAPER.md)
 [![Genesis](https://img.shields.io/badge/genesis-Di%20TeknoIn%20Inspiration-ffbd2e.svg)](./GENESIS.md)
 [![Speedup](<https://img.shields.io/badge/speedup-3.25×%20vs%20generic%20/%200.24×%20vs%20native-56d364.svg>)](./benchmarks/bench_add.py)

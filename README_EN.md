@@ -2,7 +2,7 @@
   <h1>⚙️ SODS — Sandbox Observer-Driven Specializer</h1>
   <p><b>A Research Concept & Educational PoC for Observer-Driven Runtime Specialization</b></p>
 
-[![Version](https://img.shields.io/badge/version-2.3.0%20(Research%20PoC)-58a6ff.svg)](./prototype_sods.py)
+[![Version](https://img.shields.io/badge/version-2.4.0%20(Research%20PoC)-58a6ff.svg)](./prototype_sods.py)
 [![Theory](https://img.shields.io/badge/theory-Rice's%20Theorem%20Workaround-a371f7.svg)](./WHITEPAPER_EN.md)
 [![Genesis](https://img.shields.io/badge/genesis-Di%20TeknoIn%20Inspiration-ffbd2e.svg)](./GENESIS_EN.md)
 [![Speedup](https://img.shields.io/badge/speedup-3.25×_vs_generic_/_0.24×_vs_native-56d364.svg)](./benchmarks/bench_add.py)
